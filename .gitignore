@@ -1,0 +1,22 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Security & Secrets
+.env
+.env.local
+*.pem
+*.ppk
+.aws/
+credentials
+
+# OS Generated
+.DS_Store
+Thumbs.db
