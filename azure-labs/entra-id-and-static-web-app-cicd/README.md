@@ -56,7 +56,7 @@ sequenceDiagram
     participant GH as GitHub Actions
 
     Admin->>Entra: Create User "Dev Admin" (Developer@SuarezOdu...)
-    Entra-->>Admin: Return Temp Password (Suto267939)
+    Entra-->>Admin: Return Temp Password (********)
     Admin->>IAM: Assign "Contributor" Role to "Dev Admin"
     IAM-->>Admin: Role Assignment Confirmed
     
@@ -78,22 +78,22 @@ sequenceDiagram
 
 ## 📋 Comprehensive Execution Matrix
 
-| Step # | Phase | Operation | Component | Exact Value / Parameter | Security Purpose |
-| :---: | :--- | :--- | :--- | :--- | :--- |
-| **01** | IAM Setup | Tenant Inspection | Microsoft Entra ID | Tenant ID: `47f6b4c5-94fb-4c43-a35b-062407f622f3` | Verify target directory scope before changes |
-| **02** | IAM Setup | User Navigation | Users Blade | `+ New user` -> `Create new user` | Begin non-root user creation workflow |
-| **03** | IAM Setup | Identity Fields | Create User Wizard | UPN: `Developer@SuarezOduoutlook.onmicrosoft.com` | Create dedicated developer identity |
-| **04** | IAM Setup | Review Credentials | Create User Wizard | Display Name: `Dev Admin` | Generate temporary credentials securely |
-| **05** | IAM Scope | Subscription Review | Subscriptions | ID: `be62833e-22d5-43d0-aaad-02b0338022aa` | Confirm target subscription container |
-| **06** | IAM Scope | IAM Navigation | Access Control (IAM) | `Add role assignment` | Initiate role delegation workflow |
-| **07** | IAM Scope | Role Assignment | Add Role Assignment | Role: `Contributor` | Enforce zero-billing non-root access |
-| **08** | IAM Scope | Verification | Role Assignments | Scope: `This resource` (Subscription) | Confirm rule binding in RBAC |
-| **09** | MFA | Authentication | Authenticator App | Microsoft Authenticator App linked | Enforce 2FA/MFA compliance |
+| Step # | Phase | Operation | Component | Exact Value / Parameter                               | Security Purpose |
+| :---: | :--- | :--- | :--- |:------------------------------------------------------| :--- |
+| **01** | IAM Setup | Tenant Inspection | Microsoft Entra ID | Tenant ID: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`     | Verify target directory scope before changes |
+| **02** | IAM Setup | User Navigation | Users Blade | `+ New user` -> `Create new user`                     | Begin non-root user creation workflow |
+| **03** | IAM Setup | Identity Fields | Create User Wizard | UPN: `[Your-Domain].onmicrosoft.com`     | Create dedicated developer identity |
+| **04** | IAM Setup | Review Credentials | Create User Wizard | Display Name: `Dev Admin`                             | Generate temporary credentials securely |
+| **05** | IAM Scope | Subscription Review | Subscriptions | ID: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`                                                | Confirm target subscription container |
+| **06** | IAM Scope | IAM Navigation | Access Control (IAM) | `Add role assignment`                                 | Initiate role delegation workflow |
+| **07** | IAM Scope | Role Assignment | Add Role Assignment | Role: `Contributor`                                   | Enforce zero-billing non-root access |
+| **08** | IAM Scope | Verification | Role Assignments | Scope: `This resource` (Subscription)                 | Confirm rule binding in RBAC |
+| **09** | MFA | Authentication | Authenticator App | Microsoft Authenticator App linked                    | Enforce 2FA/MFA compliance |
 | **10** | MFA | Access Verification | Portal Dashboard | Notice: `"You don't have permission to view credits"` | Validate least-privilege scoping working |
-| **11** | Deployment | Resource Creation | Static Web Apps | Name: `toc-fashion-store`, Plan: `Free` | Initiate global static site hosting |
-| **12** | Deployment | GitHub Link | Build Config | Repo: `S23rez/toc-fashion-store-production` | Connect source repository & branch |
-| **13** | Deployment | Build Preset | Build Presets | Preset: `React`, App location: `./toc-store` | Specify build directory and output (`dist`) |
-| **14** | Deployment | Verification | Azure Deployment | Status: `Your deployment is complete` | CI/CD pipeline live on Azure CDN |
+| **11** | Deployment | Resource Creation | Static Web Apps | Name: `toc-fashion-store`, Plan: `Free`               | Initiate global static site hosting |
+| **12** | Deployment | GitHub Link | Build Config | Repo: `S23rez/toc-fashion-store-production`           | Connect source repository & branch |
+| **13** | Deployment | Build Preset | Build Presets | Preset: `React`, App location: `./toc-store`          | Specify build directory and output (`dist`) |
+| **14** | Deployment | Verification | Azure Deployment | Status: `Your deployment is complete`                 | CI/CD pipeline live on Azure CDN |
 
 ---
 
@@ -104,8 +104,8 @@ sequenceDiagram
 #### Step 1: Access Microsoft Entra ID
 ![Step 1 - Microsoft Entra ID Overview](./1.jpg)
 - **Directory**: `Default Directory`
-- **Tenant ID**: `47f6b4c5-94fb-4c43-a35b-062407f622f3`
-- **Primary Domain**: `SuarezOduoutlook.onmicrosoft.com`
+- **Tenant ID**: `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
+- **Primary Domain**: `[Your-Domain].onmicrosoft.com`
 
 ---
 
@@ -117,7 +117,7 @@ sequenceDiagram
 
 #### Step 3: Configure User Principal Name
 ![Step 3 - Identity Fields](./3.jpg)
-- **User principal name**: `Developer@SuarezOduoutlook.onmicrosoft.com`
+- **User principal name**: `[Your-Domain].onmicrosoft.com`
 - **Mail nickname**: `Developer`
 - Select **Auto-generate password** and ensure **Account enabled** is checked.
 
@@ -148,7 +148,7 @@ sequenceDiagram
 #### Step 7: Assign Contributor Role to Dev Admin
 ![Step 7 - Add Role Assignment](./7.jpg)
 - **Role**: `Contributor`
-- **Member**: `Dev Admin` (`Developer@SuarezOduoutlook.onmicrosoft.com`)
+- **Member**: `Dev Admin` (`[Your-Domain].onmicrosoft.com`)
 - **Description**: `"Identity Access Management - Having a non root privileged account"`
 
 ---
