@@ -1,0 +1,59 @@
+Trust Policy Role
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowVPCFlowLogsServiceToAssumeRole",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "vpc-flow-logs.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+
+Purpose: This is the Trust Policy (Authentication layer) 
+attached to the IAM Role.
+
+Explanation: By default, AWS services cannot touch your resources 
+without explicit permission. This statement grants the AWS VPC Flow 
+Logs service (vpc-flow-logs.amazonaws.com) permission to call 
+sts:AssumeRole and assume this role.
+
+
+
+VPC Flow Logs: Permissions Policy (JSON Policy)
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowFlowLogsToCloudWatch",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+Purpose: This is the Permissions Policy (Authorization layer) attached inside the IAM Role.
+
+Explanation:
+
+logs:CreateLogGroup & logs:CreateLogStream: 
+Allows VPC Flow Logs to automatically generate log groups and individual
+log streams if they do not already exist.
+
+logs:PutLogEvents: Authorizes the service to write and deliver the actual 
+captured network metadata packets into CloudWatch.
+
+logs:DescribeLogGroups & logs:DescribeLogStreams: 
+Allows the service to query CloudWatch to verify where to send the stream.
+
+Resource: "*": Allows these actions across the CloudWatch Logs service endpoint.

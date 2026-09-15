@@ -1,0 +1,1024 @@
+C:\Users\Suarez\Contacts>ssh -i NextWorkAuroraApp.pem ec2-user@ec2-13-220-86-216.compute-1.amazonaws.com
+The authenticity of host 'ec2-13-220-86-216.compute-1.amazonaws.com (13.220.86.216)' can't be established.
+ED25519 key fingerprint is SHA256:PR/4dBFJhH4dWW43lcPSq/NQ+WxpSBlGkGahZ+tRYKo.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ec2-13-220-86-216.compute-1.amazonaws.com' (ED25519) to the list of known hosts.
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+[ec2-user@ip-172-31-17-201 ~]$ sudo dnf update -y
+Amazon Linux 2023 Kernel Livepatch repository                  539 kB/s |  69 kB     00:00
+Dependencies resolved.
+Nothing to do.
+Complete!
+[ec2-user@ip-172-31-17-201 ~]$ sudo dnf install -y httpd   php php-mysqli mariadb105
+Last metadata expiration check: 0:01:45 ago on Thu Sep  3 14:15:17 2026.
+Dependencies resolved.
+=============================================================================================== Package                        Arch       Version                       Repository       Size
+===============================================================================================Installing:
+ httpd                          x86_64     2.4.68-1.amzn2023.0.1         amazonlinux      46 k
+ mariadb105                     x86_64     3:10.5.29-1.amzn2023.0.1      amazonlinux     1.5 M
+ php8.5                         x86_64     8.5.9-1.amzn2023.0.1          amazonlinux      14 k
+ php8.5-mysqlnd                 x86_64     8.5.9-1.amzn2023.0.1          amazonlinux     154 k
+Installing dependencies:
+ apr                            x86_64     1.7.5-1.amzn2023.0.4          amazonlinux     129 k
+ apr-util                       x86_64     1.6.5-1.amzn2023.0.1          amazonlinux     100 k
+ apr-util-lmdb                  x86_64     1.6.5-1.amzn2023.0.1          amazonlinux      15 k
+ generic-logos-httpd            noarch     18.0.0-12.amzn2023.0.3        amazonlinux      19 k
+ httpd-core                     x86_64     2.4.68-1.amzn2023.0.1         amazonlinux     1.4 M
+ httpd-filesystem               noarch     2.4.68-1.amzn2023.0.1         amazonlinux      12 k
+ httpd-tools                    x86_64     2.4.68-1.amzn2023.0.1         amazonlinux      80 k
+ libbrotli                      x86_64     1.0.9-4.amzn2023.0.2          amazonlinux     315 k
+ libsodium                      x86_64     1.0.19-5.amzn2023             amazonlinux     174 k
+ mailcap                        noarch     2.1.49-3.amzn2023.0.3         amazonlinux      33 k
+ mariadb-connector-c            x86_64     3.3.10-1.amzn2023.0.2         amazonlinux     211 k
+ mariadb-connector-c-config     noarch     3.3.10-1.amzn2023.0.2         amazonlinux     9.3 k
+ mariadb105-common              x86_64     3:10.5.29-1.amzn2023.0.1      amazonlinux      28 k
+ nginx-filesystem               noarch     1:1.30.4-1.amzn2023.0.1       amazonlinux      10 k
+ perl-Sys-Hostname              x86_64     1.23-477.amzn2023.0.9         amazonlinux      17 k
+ php8.5-cli                     x86_64     8.5.9-1.amzn2023.0.1          amazonlinux     6.1 M
+ php8.5-common                  x86_64     8.5.9-1.amzn2023.0.1          amazonlinux     863 k
+ php8.5-pdo                     x86_64     8.5.9-1.amzn2023.0.1          amazonlinux      99 k
+ php8.5-process                 x86_64     8.5.9-1.amzn2023.0.1          amazonlinux      49 k
+ php8.5-xml                     x86_64     8.5.9-1.amzn2023.0.1          amazonlinux     248 k
+Installing weak dependencies:
+ apr-util-openssl               x86_64     1.6.5-1.amzn2023.0.1          amazonlinux      17 k
+ mod_http2                      x86_64     2.0.42-1.amzn2023.0.1         amazonlinux     167 k
+ mod_lua                        x86_64     2.4.68-1.amzn2023.0.1         amazonlinux      59 k
+ php8.5-fpm                     x86_64     8.5.9-1.amzn2023.0.1          amazonlinux     3.1 M
+ php8.5-mbstring                x86_64     8.5.9-1.amzn2023.0.1          amazonlinux     539 k
+ php8.5-sodium                  x86_64     8.5.9-1.amzn2023.0.1          amazonlinux      45 k
+
+Transaction Summary
+===============================================================================================Install  30 Packages
+
+Total download size: 15 M
+Installed size: 85 M
+Downloading Packages:
+(1/30): apr-1.7.5-1.amzn2023.0.4.x86_64.rpm                    3.0 MB/s | 129 kB     00:00
+(2/30): apr-util-lmdb-1.6.5-1.amzn2023.0.1.x86_64.rpm          334 kB/s |  15 kB     00:00
+(3/30): apr-util-1.6.5-1.amzn2023.0.1.x86_64.rpm               2.0 MB/s | 100 kB     00:00
+(4/30): apr-util-openssl-1.6.5-1.amzn2023.0.1.x86_64.rpm       715 kB/s |  17 kB     00:00
+(5/30): generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch.rpm  697 kB/s |  19 kB     00:00
+(6/30): httpd-2.4.68-1.amzn2023.0.1.x86_64.rpm                 1.6 MB/s |  46 kB     00:00
+(7/30): httpd-tools-2.4.68-1.amzn2023.0.1.x86_64.rpm           3.8 MB/s |  80 kB     00:00
+(8/30): httpd-core-2.4.68-1.amzn2023.0.1.x86_64.rpm             33 MB/s | 1.4 MB     00:00
+(9/30): httpd-filesystem-2.4.68-1.amzn2023.0.1.noarch.rpm      311 kB/s |  12 kB     00:00
+(10/30): libbrotli-1.0.9-4.amzn2023.0.2.x86_64.rpm             9.8 MB/s | 315 kB     00:00
+(11/30): mailcap-2.1.49-3.amzn2023.0.3.noarch.rpm              1.3 MB/s |  33 kB     00:00
+(12/30): libsodium-1.0.19-5.amzn2023.x86_64.rpm                4.9 MB/s | 174 kB     00:00
+(13/30): mariadb-connector-c-3.3.10-1.amzn2023.0.2.x86_64.rpm  9.2 MB/s | 211 kB     00:00
+(14/30): mariadb-connector-c-config-3.3.10-1.amzn2023.0.2.noar 357 kB/s | 9.3 kB     00:00
+(15/30): mariadb105-common-10.5.29-1.amzn2023.0.1.x86_64.rpm   1.0 MB/s |  28 kB     00:00
+(16/30): mariadb105-10.5.29-1.amzn2023.0.1.x86_64.rpm           32 MB/s | 1.5 MB     00:00
+(17/30): mod_http2-2.0.42-1.amzn2023.0.1.x86_64.rpm            4.9 MB/s | 167 kB     00:00
+(18/30): mod_lua-2.4.68-1.amzn2023.0.1.x86_64.rpm              1.7 MB/s |  59 kB     00:00
+(19/30): nginx-filesystem-1.30.4-1.amzn2023.0.1.noarch.rpm     364 kB/s |  10 kB     00:00
+(20/30): perl-Sys-Hostname-1.23-477.amzn2023.0.9.x86_64.rpm    561 kB/s |  17 kB     00:00
+(21/30): php8.5-8.5.9-1.amzn2023.0.1.x86_64.rpm                470 kB/s |  14 kB     00:00
+(22/30): php8.5-common-8.5.9-1.amzn2023.0.1.x86_64.rpm          23 MB/s | 863 kB     00:00
+(23/30): php8.5-fpm-8.5.9-1.amzn2023.0.1.x86_64.rpm             54 MB/s | 3.1 MB     00:00
+(24/30): php8.5-mbstring-8.5.9-1.amzn2023.0.1.x86_64.rpm        13 MB/s | 539 kB     00:00
+(25/30): php8.5-cli-8.5.9-1.amzn2023.0.1.x86_64.rpm             51 MB/s | 6.1 MB     00:00
+(26/30): php8.5-mysqlnd-8.5.9-1.amzn2023.0.1.x86_64.rpm        3.5 MB/s | 154 kB     00:00
+(27/30): php8.5-pdo-8.5.9-1.amzn2023.0.1.x86_64.rpm            2.6 MB/s |  99 kB     00:00
+(28/30): php8.5-process-8.5.9-1.amzn2023.0.1.x86_64.rpm        2.2 MB/s |  49 kB     00:00
+(29/30): php8.5-xml-8.5.9-1.amzn2023.0.1.x86_64.rpm            7.0 MB/s | 248 kB     00:00
+(30/30): php8.5-sodium-8.5.9-1.amzn2023.0.1.x86_64.rpm         892 kB/s |  45 kB     00:00
+-----------------------------------------------------------------------------------------------Total                                                           34 MB/s |  15 MB     00:00
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                       1/1
+  Installing       : php8.5-common-8.5.9-1.amzn2023.0.1.x86_64                            1/30
+  Installing       : apr-1.7.5-1.amzn2023.0.4.x86_64                                      2/30
+  Installing       : apr-util-lmdb-1.6.5-1.amzn2023.0.1.x86_64                            3/30
+  Installing       : apr-util-openssl-1.6.5-1.amzn2023.0.1.x86_64                         4/30
+  Installing       : apr-util-1.6.5-1.amzn2023.0.1.x86_64                                 5/30
+  Installing       : php8.5-pdo-8.5.9-1.amzn2023.0.1.x86_64                               6/30
+  Installing       : mariadb-connector-c-config-3.3.10-1.amzn2023.0.2.noarch              7/30
+  Installing       : mailcap-2.1.49-3.amzn2023.0.3.noarch                                 8/30
+  Running scriptlet: httpd-filesystem-2.4.68-1.amzn2023.0.1.noarch                        9/30
+  Installing       : httpd-filesystem-2.4.68-1.amzn2023.0.1.noarch                        9/30
+  Installing       : mariadb-connector-c-3.3.10-1.amzn2023.0.2.x86_64                    10/30
+  Installing       : mariadb105-common-3:10.5.29-1.amzn2023.0.1.x86_64                   11/30
+  Installing       : httpd-tools-2.4.68-1.amzn2023.0.1.x86_64                            12/30
+  Installing       : httpd-core-2.4.68-1.amzn2023.0.1.x86_64                             13/30
+  Installing       : mod_http2-2.0.42-1.amzn2023.0.1.x86_64                              14/30
+  Installing       : mod_lua-2.4.68-1.amzn2023.0.1.x86_64                                15/30
+  Installing       : php8.5-cli-8.5.9-1.amzn2023.0.1.x86_64                              16/30
+  Installing       : php8.5-mbstring-8.5.9-1.amzn2023.0.1.x86_64                         17/30
+  Installing       : php8.5-process-8.5.9-1.amzn2023.0.1.x86_64                          18/30
+  Installing       : php8.5-xml-8.5.9-1.amzn2023.0.1.x86_64                              19/30
+  Installing       : perl-Sys-Hostname-1.23-477.amzn2023.0.9.x86_64                      20/30
+  Running scriptlet: nginx-filesystem-1:1.30.4-1.amzn2023.0.1.noarch                     21/30
+  Installing       : nginx-filesystem-1:1.30.4-1.amzn2023.0.1.noarch                     21/30
+  Installing       : php8.5-fpm-8.5.9-1.amzn2023.0.1.x86_64                              22/30
+  Running scriptlet: php8.5-fpm-8.5.9-1.amzn2023.0.1.x86_64                              22/30
+  Installing       : libsodium-1.0.19-5.amzn2023.x86_64                                  23/30
+  Installing       : php8.5-sodium-8.5.9-1.amzn2023.0.1.x86_64                           24/30
+  Installing       : libbrotli-1.0.9-4.amzn2023.0.2.x86_64                               25/30
+  Installing       : generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch                   26/30
+  Installing       : httpd-2.4.68-1.amzn2023.0.1.x86_64                                  27/30
+  Running scriptlet: httpd-2.4.68-1.amzn2023.0.1.x86_64                                  27/30
+  Installing       : php8.5-8.5.9-1.amzn2023.0.1.x86_64                                  28/30
+  Installing       : mariadb105-3:10.5.29-1.amzn2023.0.1.x86_64                          29/30
+  Installing       : php8.5-mysqlnd-8.5.9-1.amzn2023.0.1.x86_64                          30/30
+  Running scriptlet: httpd-2.4.68-1.amzn2023.0.1.x86_64                                  30/30
+  Running scriptlet: php8.5-mysqlnd-8.5.9-1.amzn2023.0.1.x86_64                          30/30
+  Verifying        : apr-1.7.5-1.amzn2023.0.4.x86_64                                      1/30
+  Verifying        : apr-util-1.6.5-1.amzn2023.0.1.x86_64                                 2/30
+  Verifying        : apr-util-lmdb-1.6.5-1.amzn2023.0.1.x86_64                            3/30
+  Verifying        : apr-util-openssl-1.6.5-1.amzn2023.0.1.x86_64                         4/30
+  Verifying        : generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch                    5/30
+  Verifying        : httpd-2.4.68-1.amzn2023.0.1.x86_64                                   6/30
+  Verifying        : httpd-core-2.4.68-1.amzn2023.0.1.x86_64                              7/30
+  Verifying        : httpd-filesystem-2.4.68-1.amzn2023.0.1.noarch                        8/30
+  Verifying        : httpd-tools-2.4.68-1.amzn2023.0.1.x86_64                             9/30
+  Verifying        : libbrotli-1.0.9-4.amzn2023.0.2.x86_64                               10/30
+  Verifying        : libsodium-1.0.19-5.amzn2023.x86_64                                  11/30
+  Verifying        : mailcap-2.1.49-3.amzn2023.0.3.noarch                                12/30
+  Verifying        : mariadb-connector-c-3.3.10-1.amzn2023.0.2.x86_64                    13/30
+  Verifying        : mariadb-connector-c-config-3.3.10-1.amzn2023.0.2.noarch             14/30
+  Verifying        : mariadb105-3:10.5.29-1.amzn2023.0.1.x86_64                          15/30
+  Verifying        : mariadb105-common-3:10.5.29-1.amzn2023.0.1.x86_64                   16/30
+  Verifying        : mod_http2-2.0.42-1.amzn2023.0.1.x86_64                              17/30
+  Verifying        : mod_lua-2.4.68-1.amzn2023.0.1.x86_64                                18/30
+  Verifying        : nginx-filesystem-1:1.30.4-1.amzn2023.0.1.noarch                     19/30
+  Verifying        : perl-Sys-Hostname-1.23-477.amzn2023.0.9.x86_64                      20/30
+  Verifying        : php8.5-8.5.9-1.amzn2023.0.1.x86_64                                  21/30
+  Verifying        : php8.5-cli-8.5.9-1.amzn2023.0.1.x86_64                              22/30
+  Verifying        : php8.5-common-8.5.9-1.amzn2023.0.1.x86_64                           23/30
+  Verifying        : php8.5-fpm-8.5.9-1.amzn2023.0.1.x86_64                              24/30
+  Verifying        : php8.5-mbstring-8.5.9-1.amzn2023.0.1.x86_64                         25/30
+  Verifying        : php8.5-mysqlnd-8.5.9-1.amzn2023.0.1.x86_64                          26/30
+  Verifying        : php8.5-pdo-8.5.9-1.amzn2023.0.1.x86_64                              27/30
+  Verifying        : php8.5-process-8.5.9-1.amzn2023.0.1.x86_64                          28/30
+  Verifying        : php8.5-sodium-8.5.9-1.amzn2023.0.1.x86_64                           29/30
+  Verifying        : php8.5-xml-8.5.9-1.amzn2023.0.1.x86_64                              30/30
+
+Installed:
+  apr-1.7.5-1.amzn2023.0.4.x86_64
+  apr-util-1.6.5-1.amzn2023.0.1.x86_64
+  apr-util-lmdb-1.6.5-1.amzn2023.0.1.x86_64
+  apr-util-openssl-1.6.5-1.amzn2023.0.1.x86_64
+  generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch
+  httpd-2.4.68-1.amzn2023.0.1.x86_64
+  httpd-core-2.4.68-1.amzn2023.0.1.x86_64
+  httpd-filesystem-2.4.68-1.amzn2023.0.1.noarch
+  httpd-tools-2.4.68-1.amzn2023.0.1.x86_64
+  libbrotli-1.0.9-4.amzn2023.0.2.x86_64
+  libsodium-1.0.19-5.amzn2023.x86_64
+  mailcap-2.1.49-3.amzn2023.0.3.noarch
+  mariadb-connector-c-3.3.10-1.amzn2023.0.2.x86_64
+  mariadb-connector-c-config-3.3.10-1.amzn2023.0.2.noarch
+  mariadb105-3:10.5.29-1.amzn2023.0.1.x86_64
+  mariadb105-common-3:10.5.29-1.amzn2023.0.1.x86_64
+  mod_http2-2.0.42-1.amzn2023.0.1.x86_64
+  mod_lua-2.4.68-1.amzn2023.0.1.x86_64
+  nginx-filesystem-1:1.30.4-1.amzn2023.0.1.noarch
+  perl-Sys-Hostname-1.23-477.amzn2023.0.9.x86_64
+  php8.5-8.5.9-1.amzn2023.0.1.x86_64
+  php8.5-cli-8.5.9-1.amzn2023.0.1.x86_64
+  php8.5-common-8.5.9-1.amzn2023.0.1.x86_64
+  php8.5-fpm-8.5.9-1.amzn2023.0.1.x86_64
+  php8.5-mbstring-8.5.9-1.amzn2023.0.1.x86_64
+  php8.5-mysqlnd-8.5.9-1.amzn2023.0.1.x86_64
+  php8.5-pdo-8.5.9-1.amzn2023.0.1.x86_64
+  php8.5-process-8.5.9-1.amzn2023.0.1.x86_64
+  php8.5-sodium-8.5.9-1.amzn2023.0.1.x86_64
+  php8.5-xml-8.5.9-1.amzn2023.0.1.x86_64
+
+Complete!
+[ec2-user@ip-172-31-17-201 ~]$ sudo systemctl start httpd
+[ec2-user@ip-172-31-17-201 ~]$ cd /var/www
+[ec2-user@ip-172-31-17-201 www]$ mkdir inc
+mkdir: cannot create directory ‘inc’: Permission denied
+[ec2-user@ip-172-31-17-201 www]$ ls -ld
+drwxr-xr-x. 4 root root 33 Sep  3 14:17 .
+[ec2-user@ip-172-31-17-201 www]$ sudo mkdir inc
+[ec2-user@ip-172-31-17-201 www]$ cd inc
+[ec2-user@ip-172-31-17-201 inc]$ >dbinfo.inc
+-bash: dbinfo.inc: Permission denied
+[ec2-user@ip-172-31-17-201 inc]$ sudo >dbinfo.inc
+-bash: dbinfo.inc: Permission denied
+[ec2-user@ip-172-31-17-201 inc]$ d ~
+-bash: d: command not found
+[ec2-user@ip-172-31-17-201 inc]$ cd ~
+[ec2-user@ip-172-31-17-201 ~]$ sudo chown ec2-user:ec2-user /var/www
+[ec2-user@ip-172-31-17-201 ~]$ ls -ld var/www
+ls: cannot access 'var/www': No such file or directory
+[ec2-user@ip-172-31-17-201 ~]$ ls -ld /var/www
+drwxr-xr-x. 5 ec2-user ec2-user 44 Sep  3 14:24 /var/www
+[ec2-user@ip-172-31-17-201 ~]$ cd /var/www/
+[ec2-user@ip-172-31-17-201 www]$ ls
+cgi-bin  html  inc
+[ec2-user@ip-172-31-17-201 www]$ cd inc
+[ec2-user@ip-172-31-17-201 inc]$ >dbinfo.inc
+-bash: dbinfo.inc: Permission denied
+[ec2-user@ip-172-31-17-201 inc]$ touch dbinfo.inc
+touch: cannot touch 'dbinfo.inc': Permission denied
+[ec2-user@ip-172-31-17-201 inc]$ cd ~
+[ec2-user@ip-172-31-17-201 ~]$ sudo chown -R ec2-user:ec2-user /var/www
+[ec2-user@ip-172-31-17-201 ~]$ cd /var/www/
+[ec2-user@ip-172-31-17-201 www]$ cd inc
+[ec2-user@ip-172-31-17-201 inc]$ touch dbinfo.inc
+[ec2-user@ip-172-31-17-201 inc]$ nano dbinfo.inc
+[ec2-user@ip-172-31-17-201 inc]$ nano dbinfo.inc
+[ec2-user@ip-172-31-17-201 inc]$ cd /var/www/html
+[ec2-user@ip-172-31-17-201 html]$ >SamplePage.php
+[ec2-user@ip-172-31-17-201 html]$ nano SamplePage.php
+[ec2-user@ip-172-31-17-201 html]$ sudo yum install https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm -y
+Last metadata expiration check: 0:36:51 ago on Thu Sep  3 14:15:17 2026.
+mysql80-community-release-el7-3.noarch.rpm                     127 kB/s |  25 kB     00:00
+Dependencies resolved.
+=============================================================================================== Package                            Architecture    Version        Repository             Size
+===============================================================================================Installing:
+ mysql80-community-release          noarch          el7-3          @commandline           25 k
+
+Transaction Summary
+===============================================================================================Install  1 Package
+
+Total size: 25 k
+Installed size: 31 k
+Downloading Packages:
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                       1/1
+  Installing       : mysql80-community-release-el7-3.noarch                                1/1
+  Verifying        : mysql80-community-release-el7-3.noarch                                1/1
+
+Installed:
+  mysql80-community-release-el7-3.noarch
+
+Complete!
+[ec2-user@ip-172-31-17-201 html]$ sudo yum install mysql-community-client -y
+MySQL 8.0 Community Server                                      77 MB/s | 4.7 MB     00:00
+MySQL Connectors Community                                     7.2 MB/s |  90 kB     00:00
+MySQL Tools Community                                           63 MB/s | 2.1 MB     00:00
+Error:
+ Problem: conflicting requests
+  - nothing provides ld-linux.so.2 needed by mysql-community-client-8.0.11-1.el7.i686 from mysql80-community
+  - nothing provides ld-linux.so.2(GLIBC_2.3) needed by mysql-community-client-8.0.11-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.11-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.11-1.el7.i686 from mysql80-community
+    - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.20-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.20-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.20-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.14) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libsasl2.so.3 needed by mysql-community-client-8.0.21-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.21-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.21-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.21-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.21-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.14) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.22-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.22-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.22-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.22-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.22-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.14) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.23-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.23-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.23-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.23-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.23-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.14) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.6) needed by mysql-community-client-8.0.24-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.24-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.24-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.24-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.24-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.14) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.6) needed by mysql-community-client-8.0.25-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.25-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.25-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.25-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.25-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.14) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.6) needed by mysql-community-client-8.0.26-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.26-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.26-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.26-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.26-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.14) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.6) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.12) needed by mysql-community-client-8.0.27-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.27-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.27-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.27-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.27-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.6) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.12) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.17) needed by mysql-community-client-8.0.28-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.28-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.28-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.28-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.28-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.6) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.12) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.17) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.2) needed by mysql-community-client-8.0.30-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.30-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.30-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.30-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.30-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.6) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.12) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.17) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.2) needed by mysql-community-client-8.0.31-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.31-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.31-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.31-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.31-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.6) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.12) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.17) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.2) needed by mysql-community-client-8.0.32-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.32-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.32-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.32-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.32-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.6) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.12) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.17) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.2) needed by mysql-community-client-8.0.33-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.33-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.33-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.33-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.33-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.6) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.12) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.17) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.2) needed by mysql-community-client-8.0.34-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.34-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.34-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.34-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.34-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.6) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.12) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.17) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.2) needed by mysql-community-client-8.0.35-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.35-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.35-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.35-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.35-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.6) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.12) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.17) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.2) needed by mysql-community-client-8.0.36-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.36-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.36-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.36-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.36-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1(GLIBC_2.2) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10 needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6 needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.5) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.11) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.14) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.15) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.18) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.19) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.9) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libtinfo.so.5 needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.4) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6(GLIBC_2.1) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2 needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.2) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libresolv.so.2(GLIBC_2.9) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(GLIBCXX_3.4.6) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.12) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libc.so.6(GLIBC_2.17) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libstdc++.so.6(CXXABI_1.3.2) needed by mysql-community-client-8.0.37-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10()(64bit) needed by mysql-community-client-8.0.37-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10)(64bit) needed by mysql-community-client-8.0.37-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10()(64bit) needed by mysql-community-client-8.0.37-1.el7.x86_64 from mysql80-community
+  - nothing provides libssl.so.10(libssl.so.10)(64bit) needed by mysql-community-client-8.0.37-1.el7.x86_64 from mysql80-community
+  - nothing provides libcrypto.so.10 needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides libcrypto.so.10(libcrypto.so.10) needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2 needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.0) needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides libdl.so.2(GLIBC_2.1) needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1 needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GCC_3.0) needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides libgcc_s.so.1(GLIBC_2.0) needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides libm.so.6 needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides libncurses.so.5 needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0 needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.0) needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.1) needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.2) needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides libpthread.so.0(GLIBC_2.3.2) needed by mysql-community-client-8.0.39-1.el7.i686 from mysql80-community
+  - nothing provides librt.so.1 needed by m mysql-community-client-8.0.46-1.el7.x86_64 from mysql80-community
+(try to add '--skip-broken' to skip uninstallable packages)
+[ec2-user@ip-172-31-17-201 html]$ mysql -h YOUR_WRITER_ENDPOINT -P 3306 -u admin -p
+Enter password:
+ERROR 2005 (HY000): Unknown MySQL server host 'YOUR_WRITER_ENDPOINT' (-2)
+[ec2-user@ip-172-31-17-201 html]$ mysql -h nextwork-db-cluster.cg1yc4ea0aob.us-east-1.rds.amazonaws.com -P 3306 -u admin -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 69
+Server version: 8.4.9 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sample             |
+| sys                |
++--------------------+
+5 rows in set (0.016 sec)
+
+MySQL [(none)]> USE sample;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MySQL [sample]> SHOW TABLES;
++------------------+
+| Tables_in_sample |
++------------------+
+| EMPLOYEES        |
++------------------+
+1 row in set (0.001 sec)
+
+MySQL [sample]> DESCRIBE EMPLOYEES;
++---------+--------------+------+-----+---------+----------------+
+| Field   | Type         | Null | Key | Default | Extra          |
++---------+--------------+------+-----+---------+----------------+
+| ID      | int unsigned | NO   | PRI | NULL    | auto_increment |
+| NAME    | varchar(45)  | YES  |     | NULL    |                |
+| ADDRESS | varchar(90)  | YES  |     | NULL    |                |
++---------+--------------+------+-----+---------+----------------+
+3 rows in set (0.013 sec)
+
+MySQL [sample]> SELECT * FROM EMPLOYEES;
++----+------------------------+--------------------------------------------+
+| ID | NAME                   | ADDRESS                                    |
++----+------------------------+--------------------------------------------+
+|  1 | Suarez                 | Lagos Island                               |
+|  2 | Odunuga Fatai Olayinka | 154, TOkunboh Street, Lagos Island, Lagos. |
++----+------------------------+--------------------------------------------+
+2 rows in set (0.003 sec)
+
+MySQL [sample]> client_loop: send disconnect: Connection reset

@@ -1,0 +1,38 @@
+^[[D~ $ aws ec2 create-vpc --cidr-block 10.0.0.0/24 --query "Vpc.VpcId" --output text --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=new-region-VPC}]' --region us-east-2
+vpc-055555315724b4454
+~ $ aws ec2 create-vpc --cidr-block 10.0.0.0/24 --query "Vpc.VpcId" --output text --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=new-region-VPC}]' --region REGION-CODE
+aws: [ERROR]: Could not connect to the endpoint URL: "https://ec2.REGION-CODE.amazonaws.com/"
+^[[D~ $ aws ec2 create-vpc --cidr-block 10.0.0.0/24 --query "Vpc.VpcId" --output text --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=new-region-VPC}]' --region us-east-2vpc-055555315724b4454
+~ $ aws ec2 create-internet-gateway --query "InternetGateway.InternetGatewayId" --output text --tag-specifications 'ResourceType=internet-gateway,Tags=[{Key=Name,Value="new-region-IG"}]' --region us-east-2igw-067e88cce6c78d9cf
+~ $ aws ec2 create-security-group --query "GroupId" --output text  --description "New SG created to test creating an SG in another Region." --group-name new-region-sg --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value="new-region-sg"}]' --region us-east-2sg-009627ba0442f94c7
+~ $ aws ec2 delete-vpc --vpc-id VPC-ID
+
+aws: [ERROR]: An error occurred (InvalidVpcId.Malformed) when calling the DeleteVpc operation: The vpc ID 'VPC-ID' is malformed
+~ $ aws ec2 delete-vpc --vpc-id 055555315724b4454
+
+aws: [ERROR]: An error occurred (InvalidVpcId.Malformed) when calling the DeleteVpc operation: The vpc ID '055555315724b4454' is malformed
+~ $ aws ec2 delete-vpc --vpc-id vpc-055555315724b4454
+
+aws: [ERROR]: An error occurred (InvalidVpcID.NotFound) when calling the DeleteVpc operation: The vpc ID 'vpc-055555315724b4454' does not exist
+~ $ aws ec2 delete-vpc --vpc-id vpc-055555315724b4454
+
+
+aws: [ERROR]: An error occurred (InvalidVpcID.NotFound) when calling the DeleteVpc operation: The vpc ID 'vpc-055555315724b4454' does not exist
+~ $ 
+~ $ aws ec2 delete-security-group --group-id sg-009627ba0442f94c7
+
+aws: [ERROR]: An error occurred (InvalidGroup.NotFound) when calling the DeleteSecurityGroup operation: The security group 'sg-009627ba0442f94c7' does not exist
+~ $ aws ec2 delete-internet-gateway --internet-gateway-id igw-067e88cce6c78d9cf
+
+aws: [ERROR]: An error occurred (InvalidInternetGatewayID.NotFound) when calling the DeleteInternetGateway operation: The internetGateway ID 'igw-067e88cce6c78d9cf' does not exist
+~ $ aws ec2 delete-security-group --group-id sg-009627ba0442f94c7 --region us-east-2
+{
+    "Return": true,
+    "GroupId": "sg-009627ba0442f94c7"
+}
+~ $ aws ec2 detach-internet-gateway --internet-gateway-id igw-067e88cce6c78d9cf --vpc-id vpc-055555315724b4454 --region us-east-2
+
+aws: [ERROR]: An error occurred (Gateway.NotAttached) when calling the DetachInternetGateway operation: resource igw-067e88cce6c78d9cf is not attached to network vpc-055555315724b4454
+~ $ aws ec2 delete-internet-gateway --internet-gateway-id igw-067e88cce6c78d9cf --region us-east-2
+~ $ aws ec2 delete-vpc --vpc-id vpc-055555315724b4454 --region us-east-2
+~ $ 
