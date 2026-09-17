@@ -1,0 +1,15 @@
+==================
+DOWNLOAD THE DATA
+==================
+curl -O https://storage.googleapis.com/nextwork_course_resources/courses/aws/AWS%20Project%20People%20projects/Project%3A%20Query%20Data%20with%20DynamoDB/nextworksampledata.zip
+
+==================
+UNZIPPING THE FILE
+===================
+unzip nextworksampledata.zip
+
+
+==============================================
+NAVIGATING TO THE FILES IN THE DATA DIRECTORY
+==============================================
+cd nextworksampledata

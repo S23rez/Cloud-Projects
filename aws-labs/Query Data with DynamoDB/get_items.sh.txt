@@ -1,0 +1,17 @@
+==================
+GET SINGLE ITEM
+==================
+
+aws dynamodb get-item \
+    --table-name ContentCatalog \
+    --key '{"Id":{"N":"201"}}'
+
+=====================================
+GET UPDATED UNIQUE ITEM WITH CAPACITY
+=====================================
+aws dynamodb get-item \
+    --table-name ContentCatalog \
+    --key '{"Id":{"N":"101"}}' \
+    --consistent-read \
+    --projection-expression "Title, ContentType, Services" \
+    --return-consumed-capacity TOTAL
